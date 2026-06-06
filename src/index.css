@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+	--font-sans: "Lato", system-ui, -apple-system, sans-serif;
+}
+
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: #000;
+	color: white;
+}
+
+.btn-primary {
+	@apply bg-green-500 cursor-pointer hover:bg-green-600;
+}
+
+.btn-secondary {
+	@apply border-2 border-blue-500 cursor-pointer hover:bg-zinc-800;
+}
