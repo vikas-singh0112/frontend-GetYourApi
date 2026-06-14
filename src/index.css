@@ -14,16 +14,21 @@ body {
 	/* IE, Edge, and Firefox */
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+
+	background: #000;
+	color: white;
 }
 
-html {
+/* html {
 	scroll-behavior: smooth;
 }
 
 body {
 	background: #000;
 	color: white;
-}
+} */
 
 .btn-primary {
 	@apply bg-green-500 cursor-pointer hover:bg-green-600;

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ApiSearch from "../components/ApiSearch";
 import { api } from "../data/data";
 import ApiCards from "../components/ApiCards";
 
@@ -21,8 +20,8 @@ export default function Api() {
 	const [apiData, setApiData] = useState<ApiCategory>(api[0]);
 	const [activeCodeIndex, setActiveCodeIndex] = useState<number | null>(null);
 	return (
-		<div className="w-full flex">
-			<section className="w-1/4 pr-12">
+		<div className="w-full  flex mx-auto lg:w-6xl px-4 lg:px-0 gap-2 sm:gap-0">
+			<section className="w-1/4 sm:pr-12 ">
 				<ul className="flex flex-col gap-1 py-4">
 					{api.map((data, index) => {
 						const isActive = apiData.api === data.api;
@@ -35,18 +34,18 @@ export default function Api() {
 							>
 								{/* Active Indicator Bar */}
 								{isActive && (
-									<div className="absolute left-0 w-1 h-5 bg-green-500 rounded-full" />
+									<div className="absolute left-0 w-1 h-5 bg-green-500 rounded-full hidden sm:flex" />
 								)}
 
 								<span
-									className={`ml-3 text-sm font-medium capitalize transition-transform duration-200 ${isActive ? "translate-x-1" : "group-hover:translate-x-1"}`}
+									className={`sm:ml-3 text-sm font-medium capitalize transition-transform duration-200 ${isActive ? "translate-x-1" : "group-hover:translate-x-1"}`}
 								>
 									{data.api}
 								</span>
 
 								{/* Optional: Show route count badge */}
 								<span
-									className={`ml-auto text-[10px] px-1.5 py-0.5 rounded border ${isActive ? "border-green-500/30 text-green-500" : "border-zinc-700 text-zinc-600 group-hover:border-zinc-600"}`}
+									className={`hidden sm:flex ml-auto text-[10px] px-1.5 py-0.5 rounded border ${isActive ? "border-green-500/30 text-green-500" : "border-zinc-700 text-zinc-600 group-hover:border-zinc-600"}`}
 								>
 									{data.routes.length}
 								</span>

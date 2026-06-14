@@ -56,23 +56,23 @@ const ApiCards = ({
 						</h3>
 					</div>
 
-					<div className="flex flex-col gap-1">
+					<div className="flex flex-col sm:gap-1">
 						<div className="flex items-start gap-2 text-zinc-400">
 							<p className="text-sm italic leading-tight">Global/Default</p>
 						</div>
-						<div className="flex justify-between gap-4">
-							<div className="w-3/4">
+						<div className="flex justify-between gap-2  sm:gap-4 flex-col sm:flex-row">
+							<div className="sm:w-3/4">
 								<div className="flex items-center gap-2 bg-black/50 self-start px-3 py-1.5 rounded-lg border border-zinc-800 group-hover:border-zinc-700 transition-colors">
 									<span className="text-zinc-500 text-xs font-mono">
 										Endpoint:
 									</span>
-									<code className="text-green-400 font-mono text-xs">
+									<code className="text-green-400 font-mono text-xs break-all">
 										{import.meta.env.VITE_BACKEND_URL}
 										{data.globalRoute}
 									</code>
 								</div>
 							</div>
-							<div className="flex items-center w-1/4 gap-2">
+							<div className="flex items-center sm:w-1/4 gap-2">
 								<button
 									onClick={(e) => openCodeBtn(e, data.globalRoute)}
 									className={`w-full  py-1.5 text-xs font-medium transition-all duration-200 rounded-md border cursor-pointer ${
@@ -100,24 +100,24 @@ const ApiCards = ({
 
 						{data.privateRoute && (
 							<>
-								<div className="flex items-start  text-zinc-400">
+								<div className="flex items-start  text-zinc-400 mt-4 sm:mt-0">
 									<p className="text-sm italic leading-tight">
-										Private/Persistant
+										Private/Persistent
 									</p>
 								</div>
-								<div className="flex justify-between gap-4">
-									<div className="w-3/4">
+								<div className="flex justify-between gap-2 sm:gap-4 flex-col sm:flex-row">
+									<div className="sm:w-3/4">
 										<div className="flex items-center gap-2 bg-black/50 self-start px-3 py-1.5 rounded-lg border border-zinc-800 group-hover:border-zinc-700 transition-colors ">
 											<span className="text-zinc-500 text-xs font-mono">
 												Endpoint:
 											</span>
-											<code className="text-green-400 font-mono text-xs">
+											<code className="text-green-400 font-mono text-xs break-all">
 												{import.meta.env.VITE_BACKEND_URL}
 												{data.privateRoute}
 											</code>
 										</div>
 									</div>
-									<div className="flex items-center w-1/4 gap-2">
+									<div className="flex items-center sm:w-1/4 gap-2">
 										<button
 											onClick={(e) => openCodeBtn(e, data.privateRoute!)}
 											className={`w-full  py-1.5 text-xs font-medium transition-all duration-200 rounded-md border cursor-pointer ${

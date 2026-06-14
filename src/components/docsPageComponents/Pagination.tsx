@@ -1,30 +1,30 @@
 export default function Pagination() {
 	const user = `{
-   message: "Users fetched successfully",
-   statusCode: 200,
-   success: true,
-   timestamp: "2026-06-14T11:41:37.681Z",
-   data: {
-    users: [
-      {
-        _id: "6a29371345632be239e2854d",
-        fullName: "john doe",
-        userName: "johndoe101",
-        email: "john.doe101@gmail.com",
-        phoneNumber: "9812345001",
-        role: "developer",
-        birthDate: "1994-03-14T00:00:00.000Z",
-        address: "243, main road, near sector 4",
-        city: "New York",
-        state: "NY",
-        country: "Usa",
-        zipCode: "10001",
-        createdAt: "2025-04-12T10:30:00.000Z",
-        updatedAt: "2026-06-13T05:40:26.783Z",
-        slug: "john-doe-5f4090"
-      }
-    ],
-    pagination: {
+  message: "Users fetched successfully",
+  statusCode: 200,
+  success: true,
+  timestamp: "2026-06-14T11:41:37.681Z",
+  data: {
+   users: [
+ {
+  _id: "6a29371345632be239e2854d",
+  fullName: "john doe",
+  userName: "johndoe101",
+  email: "john.doe101@gmail.com",
+  phoneNumber: "9812345001",
+  role: "developer",
+  birthDate: "1994-03-14T00:00:00.000Z",
+  address: "243, main road, near sector 4",
+  city: "New York",
+  state: "NY",
+  country: "Usa",
+  zipCode: "10001",
+  createdAt: "2025-04-12T10:30:00.000Z",
+  updatedAt: "2026-06-13T05:40:26.783Z",
+  slug: "john-doe-5f4090"
+ }
+   ],
+ pagination: {
       totalItems: 100,
       totalPages: 10,
       currentPage: 1,

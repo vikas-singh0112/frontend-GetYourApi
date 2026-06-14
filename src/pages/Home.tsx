@@ -8,7 +8,7 @@ import WhatWeOfferSection from "../components/homePageSections/WhatWeOfferSectio
 
 export default function Home() {
 	return (
-		<div className="">
+		<div className="px-4 sm:px-8">
 			{/* HERO SECTION */}
 			<HeroSection />
 

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { Terminal } from "lucide-react";
+import { DoorOpen, LogOut, Menu, Terminal, X } from "lucide-react";
 import { useGlobalAuth } from "../context/AuthContext";
 import { useEffect, useRef, useState } from "react";
 
@@ -29,7 +29,6 @@ function Navbar() {
 		};
 	}, []);
 
-	console.log(user?.avatar);
 	const userAvatar = user?.avatar === undefined ? "/user.png" : user?.avatar;
 
 	const activeMenu = (path: string) =>
@@ -37,17 +36,26 @@ function Navbar() {
 			? "text-lg font-medium tracking-tight text-green-500"
 			: " text-lg font-medium tracking-tight text-zinc-400 hover:text-zinc-200 ";
 
+	// mobile
+	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const mobileMenuOpenCloseBtn = () => {
+		setMobileMenuOpen(!mobileMenuOpen);
+	};
+	useEffect(() => {
+		setMobileMenuOpen(false);
+	}, [location.pathname]);
+
 	return (
 		<>
-			<header className=" border-b-2 border-green-500/30 bg-black  sticky top-0 z-50">
-				<div className="w-6xl mx-auto h-16 flex items-center justify-between">
-					<div className="flex items-center space-x-2 font-bold text-2xl tracking-tight">
+			<header className="w-full lg:w-6xl border-b-2 border-green-500/30 bg-black sticky top-0 z-50 ">
+				<div className="px-8 lg:px-0 w-full h-16 flex items-center justify-between  mx-auto ">
+					<div className="flex w-auto items-center space-x-2 font-bold text-2xl tracking-tight">
 						<Terminal className="text-green-500 h-7 w-7" />
 						<span className="text-white">
 							Get Your <span className="text-green-500">API</span>
 						</span>
 					</div>
-					<nav className="flex items-center space-x-6">
+					<nav className="hidden lg:flex items-center space-x-6">
 						<Link to={"/"} className={activeMenu("/")}>
 							Home
 						</Link>
@@ -61,9 +69,9 @@ function Navbar() {
 						<Link to={"/about"} className={activeMenu("/about")}>
 							About
 						</Link>
-						<Link to={"/contact"} className={activeMenu("/contact")}>
+						{/* <Link to={"/contact"} className={activeMenu("/contact")}>
 							Contact
-						</Link>
+						</Link> */}
 
 						{signedIn && user ? (
 							<>
@@ -110,6 +118,101 @@ function Navbar() {
 							</Link>
 						)}
 					</nav>
+
+					{/* mobile menu btn */}
+					<div className="lg:hidden flex gap-8 text-zinc-300">
+						<div className="hidden sm:flex">
+							{signedIn && user ? (
+								<Link to={"/dashboard"} className="text-lg">
+									Dashboard
+								</Link>
+							) : (
+								<Link to={"/signin"}>Signin</Link>
+							)}
+						</div>
+						<div onClick={mobileMenuOpenCloseBtn} className="cursor-pointer">
+							<Menu />
+						</div>
+					</div>
+
+					{/* mobile menu open */}
+					{mobileMenuOpen && (
+						<div className="fixed inset-x-0 top-0 bottom-0 bg-black">
+							{/* logo and close btn */}
+							<div className="h-16 w-full flex justify-between items-center px-8 border-b-2 border-green-500/30 text-2xl tracking-tight font-bold">
+								{/* logo */}
+								<div className="flex gap-2">
+									<Terminal className="text-green-500 h-7 w-7" />
+									<span className="text-white">
+										Get Your <span className="text-green-500">API</span>
+									</span>
+								</div>
+								{/* close btn */}
+								<div
+									onClick={mobileMenuOpenCloseBtn}
+									className=" text-zinc-300 cursor-pointer"
+								>
+									<LogOut />
+								</div>
+							</div>
+							<div className="flex flex-col gap-6 items-center h-full">
+								{/* profile */}
+								{signedIn && user && (
+									<div className="flex flex-col items-center mt-4 text-zinc-200">
+										<img
+											src={userAvatar}
+											alt="user image"
+											className="w-20 h-20 rounded-full   ring-green-500 antialiased hover:ring-2 mb-4"
+										/>
+
+										<p className="capitalize">{user.displayName}</p>
+										<p>{user.email}</p>
+									</div>
+								)}
+								{/* menu */}
+								<nav
+									className={`flex flex-col items-center gap-6 h-full ${signedIn && user ? "" : "mt-20"} `}
+								>
+									<Link to={"/"} className={activeMenu("/")}>
+										Home
+									</Link>
+
+									<Link to={"/api"} className={activeMenu("/api")}>
+										Api
+									</Link>
+									<Link to={"/docs"} className={activeMenu("/docs")}>
+										Docs
+									</Link>
+									<Link to={"/about"} className={activeMenu("/about")}>
+										About
+									</Link>
+									{signedIn && user ? (
+										<>
+											<Link
+												to={"/dashboard"}
+												className={activeMenu("/dashboard")}
+											>
+												Dashboard
+											</Link>
+											<button
+												onClick={logout}
+												className="bg-red-500 py-2 rounded-lg w-full cursor-pointer hover:bg-red-600"
+											>
+												logout
+											</button>
+										</>
+									) : (
+										<Link
+											to={"/signin"}
+											className="bg-green-500 px-4 py-2 rounded hover:bg-green-600"
+										>
+											Signin
+										</Link>
+									)}
+								</nav>
+							</div>
+						</div>
+					)}
 				</div>
 			</header>
 		</>

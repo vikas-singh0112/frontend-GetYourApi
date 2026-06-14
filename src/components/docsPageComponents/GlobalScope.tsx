@@ -13,7 +13,9 @@ export default function GlobalScope({ backendUrl }: { backendUrl: string }) {
 	const globalScopeCode = `
      async function getUsers () { 
       try {
-        const response = await fetch("${backendUrl}/users"); 
+        const response = await fetch(
+		"${backendUrl}/users"
+		); 
         const result = await response.json(); 
         return result; 
       } catch (error) {
@@ -27,21 +29,21 @@ export default function GlobalScope({ backendUrl }: { backendUrl: string }) {
         
      users: [
       {
-        "_id": "6a293156300c0ebe239e2854d",
-        "fullName": "john doe",
-        "userName": "johndoe101",
-        "email": "john.doe101@gmail.com",
-        "phoneNumber": "1234567890",
-        "role": "developer",
-        "birthDate": "1994-03-14T00:00:00.000Z",
-        "address": "243, UA road",
-        "city": "new york",
-        "state": "NY",
-        "country": "USA",
-        "zipCode": "10001",
-        "createdAt": "2025-04-12T10:30:00.000Z",
-        "updatedAt": "2026-06-13T05:40:26.783Z",
-        "slug": "john-doe-5f4090"
+     _id: "6a293156300c0ebe239e2854d,
+     fullName: "john doe",
+     userName: "johndoe101",
+     email: "john.doe101@gmail.com",
+     phoneNumber: "1234567890",
+     role: "developer",
+     birthDate: "1994-03-14T00:00:00.000Z",
+     address: "243, UA road",
+     city: "new york",
+     state: "NY",
+     country: "USA",
+     zipCode: "10001",
+     createdAt: "2025-04-12T10:30:00.000Z",
+     updatedAt: "2026-06-13T05:40:26.783Z",
+     slug: "john-doe-5f4090"
       },
      ]`;
 

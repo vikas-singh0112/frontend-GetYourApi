@@ -13,7 +13,10 @@ export default function Limit({ backendUrl }: { backendUrl: string }) {
 	const limitCode = `
      async function getUsers () { 
       try {
-        const response = await fetch("${backendUrl}/users?limit=13"); 
+        const response = await fetch(
+		"${backendUrl}/users
+		?limit=13"
+		); 
         const result = await response.json(); 
         return result; 
       } catch (error) {

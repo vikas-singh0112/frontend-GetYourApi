@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ApiShowcaseSection() {
 	const categories = [
 		{
@@ -24,13 +22,16 @@ export default function ApiShowcaseSection() {
 		},
 	];
 	return (
-		<section id="endpoints" className="w-5xl mx-auto px-4 py-16">
+		<section
+			id="endpoints"
+			className="w-full lg:w-5xl mx-auto py-10  md:py-14 lg:py-16"
+		>
 			<div className="text-center mb-12">
-				<h2 className="text-3xl font-bold tracking-tight text-white mb-3">
+				<h2 className="text-3xl font-bold tracking-tight text-white mb-3 wrap-break-word">
 					30+ Rich Datasets Ready to{" "}
 					<span className="text-green-500">Plug</span>
 				</h2>
-				<p className="text-zinc-400">
+				<p className="text-zinc-400 wrap-break-word text-xl sm:text-md">
 					No API keys required for basic testing. Perfectly structured JSON.
 				</p>
 			</div>

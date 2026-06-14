@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export default function Footer() {
 	return (
-		<footer className="max-w-5xl mx-auto px-4 py-16 text-center">
+		<footer className="w-screen lg:max-w-5xl mx-auto 4 sm:px-0 py-10  md:py-14 lg:py-16 text-center">
 			<div className="max-w-xl mx-auto">
 				<Heart className="h-6 w-6 text-green-500 mx-auto mb-4 animate-pulse" />
 				<h2 className="text-2xl font-bold text-white mb-3">Why is it free?</h2>
@@ -27,7 +27,7 @@ export default function Footer() {
 					</Link>
 				</div>
 			</div>
-			<p className="text-xs text-zinc-600 mt-16 font-mono">
+			<p className="text-sm text-zinc-400 lg:text-xs lg:text-zinc-600 mt-16 font-mono">
 				© {new Date().getFullYear()} Get Your API. Built by a solo developer.
 			</p>
 		</footer>

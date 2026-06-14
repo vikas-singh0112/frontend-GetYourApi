@@ -2,15 +2,12 @@ import WhatWeOfferCard from "../WhatWeOfferCard";
 
 export default function WhatWeOfferSection() {
 	return (
-		<section className="w-5xl mx-auto rounded-2xl my-16">
+		<section className="w-full lg:w-5xl mx-auto rounded-2xl py-10  md:py-14 lg:py-16 ">
 			<div className="w-full text-center mb-10">
 				<h3 className="text-4xl ">
-					What We{" "}
-					<span className="text-green-500 underline underline-offset-6">
-						Offer
-					</span>
+					What We <span className="text-green-500">Offer</span>
 				</h3>
-				<p className="text-zinc-400">
+				<p className="text-zinc-400 text-xl wrap-break-word">
 					Everything you need to prototype your next big idea.
 				</p>
 			</div>

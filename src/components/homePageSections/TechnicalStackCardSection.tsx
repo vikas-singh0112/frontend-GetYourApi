@@ -1,9 +1,14 @@
-import { Database, Layers, Server } from 'lucide-react';
+import { Database, Layers, Server } from "lucide-react";
 
 export default function TechnicalStackCardSection() {
-  return (
-		<section className="w-5xl mx-auto border-y border-zinc-900 bg-zinc-900/10 py-16 mt-32">
-			<div className="mx-auto px-4 grid md:grid-cols-3 gap-8">
+	return (
+		<section className="w-full lg:w-5xl mx-auto border-y border-zinc-900 bg-zinc-900/10 py-10  md:py-14 lg:py-16 ">
+			<div className="w-full flex justify-center mb-10">
+				<h3 className="text-4xl ">
+					Tech Stack <span className="text-green-500">Used</span>
+				</h3>
+			</div>
+			<div className="mx-auto grid md:grid-cols-3 gap-8">
 				<div>
 					<div className="bg-blue-500/10 p-3 rounded w-fit mb-4 border border-blue-500/20">
 						<Server className="h-5 w-5 text-blue-500" />

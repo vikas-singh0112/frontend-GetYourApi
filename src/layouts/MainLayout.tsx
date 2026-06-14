@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 
 export default function MainLayout() {
 	return (
-		<div className="w-full flex flex-col items-center">
+		<div className="w-full flex flex-col relative items-center">
 			<Navbar />
-			<main className="w-6xl">
+			<main className="w-full ">
 				<Outlet />
 			</main>
 		</div>
