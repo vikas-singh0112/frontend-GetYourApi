@@ -23,8 +23,7 @@ export default function Api() {
 	return (
 		<div className="w-full flex">
 			<section className="w-1/4 pr-12">
-				<ApiSearch />
-				<ul className="flex flex-col gap-1">
+				<ul className="flex flex-col gap-1 py-4">
 					{api.map((data, index) => {
 						const isActive = apiData.api === data.api;
 

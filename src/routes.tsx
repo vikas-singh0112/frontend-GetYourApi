@@ -9,6 +9,8 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
+import Docs from "./pages/Docs";
 
 export const router = createBrowserRouter([
 	{
@@ -18,8 +20,10 @@ export const router = createBrowserRouter([
 		children: [
 			{ index: true, element: <Home /> },
 			{ path: "api", element: <Api /> },
+			{ path: "docs", element: <Docs /> },
 			{ path: "about", element: <About /> },
 			{ path: "contact", element: <Contact /> },
+			{ path: "dashboard", element: <Dashboard /> },
 		],
 	},
 	{

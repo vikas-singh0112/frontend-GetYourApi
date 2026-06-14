@@ -5,14 +5,15 @@
 	--font-sans: "Lato", system-ui, -apple-system, sans-serif;
 }
 
-@layer utilities {
-	.no-scrollbar::-webkit-scrollbar {
+html,
+body {
+	/* Safari, Chrome, and Opera */
+	::-webkit-scrollbar {
 		display: none;
 	}
-	.no-scrollbar {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
-	}
+	/* IE, Edge, and Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 }
 
 html {
