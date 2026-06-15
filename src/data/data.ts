@@ -93,12 +93,20 @@ export const api = [
 				method: "GET",
 				usage: "Returns a single product or product not found",
 			},
+
 			{
 				name: "get products by slug",
 				globalRoute: "/products/name/tshirt-red-5f4090",
 				privateRoute: "/products/name/tshirt-red-5f4090?scope=user",
 				method: "GET",
 				usage: "Returns a single product or product not found",
+			},
+			{
+				name: "get products by category",
+				globalRoute: "/products/category/Footwear",
+				privateRoute: "/products/category/Footwear?scope=user",
+				method: "GET",
+				usage: "Returns an array of products, default limit 20",
 			},
 			{
 				name: "search products",
@@ -191,6 +199,74 @@ export const api = [
 		data: {
 			title: String,
 			content: String,
+		},
+	},
+
+	// jokes
+	{
+		api: "jokes",
+		routes: [
+			{
+				name: "get jokes",
+				globalRoute: "/jokes",
+				privateRoute: "/jokes?scope=user",
+				method: "GET",
+				usage: "Returns array of jokes, default limit of 20 jokes ",
+			},
+			{
+				name: "get jokes with limit",
+				globalRoute: "/jokes?limit=10",
+				privateRoute: "/jokes?limit=10&scope=user",
+				method: "GET",
+				usage: "Returns array of jokes, set limit manually",
+			},
+			{
+				name: "get jokes by id",
+				globalRoute: "/jokes/id/123ag45dg",
+				privateRoute: "jokes/id/123ag45dg?scope=user",
+				method: "GET",
+				usage: "Returns a single joke",
+			},
+			{
+				name: "get jokes by slug",
+				globalRoute: "/jokes/setup/monkey says",
+				privateRoute: "/jokes/setup/monkey says?scope=user",
+				method: "GET",
+				usage: "Returns a single joke",
+			},
+			{
+				name: "get jokes by category",
+				globalRoute: "/jokes/category/dad",
+				privateRoute: "/jokes/category/dad?scope=user",
+				method: "GET",
+				usage: "Returns an array of jokes, default limit 20",
+			},
+			{
+				name: "search jokes",
+				globalRoute: "/jokes/search?q=documents",
+				privateRoute: "/jokes/search?q=documents&scope=user",
+				method: "GET",
+				usage: "Returns an array of jokes, default limit 20",
+			},
+			{
+				name: "search jokes with limit",
+				globalRoute: "/jokes/search?q=documents&limit=10",
+				privateRoute: "/jokes/search?q=documents&limit=10&scope=user",
+				method: "GET",
+				usage:
+					"Returns an array of jokes or jokes not found, change limit manually",
+			},
+			{
+				name: "create joke",
+				globalRoute: "/jokes/create",
+				method: "POST",
+				usage: "creates a joke, for persisted creation signin",
+			},
+		],
+		data: {
+			setup: String,
+			punchline: String,
+			category: String,
 		},
 	},
 ];

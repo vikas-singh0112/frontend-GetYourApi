@@ -80,8 +80,8 @@ export default function Docs() {
 
 	return (
 		<div className="w-full  flex flex-col lg:flex-row mx-auto lg:w-6xl px-4 lg:px-0">
-			<section className="hidden lg:flex lg:w-1/4 pr-12 ">
-				<div className="w-full flex flex-col gap-1 text-sm py-4">
+			<section className="hidden lg:flex lg:w-1/4 pr-12 mt-4">
+				<div className="w-full flex flex-col gap-1 text-sm">
 					{menuOptions.map((option, index) => (
 						<a
 							key={index}
@@ -98,7 +98,7 @@ export default function Docs() {
 			</section>
 
 			<section className="w-full lg:w-3/4">
-				<div className="overflow-y-auto bg-zinc-900/30 mt-0 lg:mt-4 mb-0.5 rounded-t-xl lg:h-[calc(100vh-4rem)] no-scrollbar ">
+				<div className="overflow-y-auto bg-zinc-900/30 rounded-t-xl lg:h-[calc(100vh-4rem)] no-scrollbar ">
 					<div className="w-full p-4">
 						{/* div comp */}
 						<GlobalScope backendUrl={backendUrl} />

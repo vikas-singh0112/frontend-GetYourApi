@@ -1,6 +1,4 @@
-import React from "react";
 import {
-	Terminal,
 	ShieldAlert,
 	Layers,
 	Cpu,
@@ -11,7 +9,7 @@ import { Link } from "react-router";
 
 export default function About() {
 	return (
-		<div className="min-h-screen bg-black text-zinc-100 font-sans py-20 px-4 select-none">
+		<div className=" bg-black text-zinc-100 font-sans py-10  px-4 select-none">
 			<div className="max-w-4xl mx-auto space-y-16">
 				{/* Header Title Banner */}
 				<div className="text-center space-y-4">

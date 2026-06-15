@@ -6,7 +6,6 @@ import Api from "./pages/Api";
 
 import AuthLayout from "./layouts/AuthLayout";
 import Signin from "./pages/Signin";
-import Signup from "./pages/Signup";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
@@ -30,7 +29,6 @@ export const router = createBrowserRouter([
 		element: <AuthLayout />,
 		children: [
 			{ path: "signin", element: <Signin /> },
-			{ path: "signup", element: <Signup /> },
 		],	
 	}
 ]);

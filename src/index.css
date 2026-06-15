@@ -21,14 +21,6 @@ body {
 	color: white;
 }
 
-/* html {
-	scroll-behavior: smooth;
-}
-
-body {
-	background: #000;
-	color: white;
-} */
 
 .btn-primary {
 	@apply bg-green-500 cursor-pointer hover:bg-green-600;

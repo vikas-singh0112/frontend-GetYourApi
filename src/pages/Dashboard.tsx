@@ -5,7 +5,7 @@ import { Check, Copy } from "lucide-react";
 
 export default function Dashboard() {
 	const navigate = useNavigate();
-	const { user, signedIn, loading, logout } = useGlobalAuth();
+	const { user, signedIn, loading } = useGlobalAuth();
 	const [secret, setSecret] = useState<string>("");
 	const [copied, setCopied] = useState(false);
 	const [coolDown, setCoolDown] = useState(false);
@@ -50,8 +50,10 @@ export default function Dashboard() {
 	};
 
 	return (
-		<div className="flex flex-col gap-10">
-			<h1 className="text-2xl font-bold mt-6">Welcome, {user?.displayName}</h1>
+		<div className="w-full  flex flex-col mx-auto lg:w-6xl px-4 lg:px-0 gap-8">
+			<h1 className="text-2xl font-bold mt-6 capitalize text-green-500">
+				Welcome, <span className="text-zinc-200">{user?.displayName}</span>
+			</h1>
 			<div className="bg-zinc-900/50 p-6 border border-zinc-800 rounded-xl">
 				<div>
 					<h2 className="text-2xl text-green-500 font-semibold">
@@ -84,12 +86,6 @@ export default function Dashboard() {
 					</button>
 				</div>
 			</div>
-			<button
-				onClick={logout}
-				className="bg-red-600 rounded px-4 py-1 cursor-pointer w-fit"
-			>
-				logout
-			</button>
 		</div>
 	);
 }

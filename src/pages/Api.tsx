@@ -20,9 +20,9 @@ export default function Api() {
 	const [apiData, setApiData] = useState<ApiCategory>(api[0]);
 	const [activeCodeIndex, setActiveCodeIndex] = useState<number | null>(null);
 	return (
-		<div className="w-full  flex mx-auto lg:w-6xl px-4 lg:px-0 gap-2 sm:gap-0">
-			<section className="w-1/4 sm:pr-12 ">
-				<ul className="flex flex-col gap-1 py-4">
+		<div className="w-full  flex flex-col sm:flex-row mx-auto lg:w-6xl px-4 lg:px-0 gap-2 sm:gap-0 relative">
+			<section className="w-full sm:w-1/4 sm:pr-12 sm:mt-4 sticky top-16 z-50 bg-black py-2 sm:py-0">
+				<ul className="flex sm:flex-col gap-1 ">
 					{api.map((data, index) => {
 						const isActive = apiData.api === data.api;
 
@@ -54,9 +54,9 @@ export default function Api() {
 					})}
 				</ul>
 			</section>
-			<section className="w-3/4 h-full ">
+			<section className="sm:w-3/4 ">
 				{/* Added overflow-y-auto so a long API list won't push the screen down */}
-				<div className="w-full h-[calc(100vh-5rem)] overflow-y-auto bg-zinc-900/30 mt-4 mb-0.5 rounded-t-xl no-scrollbar ">
+				<div className="w-full sm:h-[calc(100vh-4rem)] overflow-y-auto bg-zinc-900/30 rounded-t-xl no-scrollbar ">
 					<div className="w-full p-4">
 						<p className="text-3xl"># Usage</p>
 						<p className="capitalize my-4 text-2xl">{apiData.api} Endpoints</p>

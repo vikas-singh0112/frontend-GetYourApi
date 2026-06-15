@@ -18,14 +18,13 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-    
 	const [user, setUser] = useState<UserProfile | null>(null);
 	const [signedIn, setSignedIn] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(true);
 
 	const refreshAuth = async () => {
 		try {
-			const res = await fetch("http://localhost:7000/api/auth/user", {
+			const res = await fetch("https://getyourapi.onrender.com/api/auth/user", {
 				credentials: "include",
 			});
 			const data = await res.json();
@@ -49,7 +48,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 	}, []);
 
 	const logout = () => {
-		fetch("http://localhost:7000/api/auth/logout", {
+		fetch("https://getyourapi.onrender.com/api/auth/logout", {
 			credentials: "include",
 		}).then(() => {
 			setUser(null);

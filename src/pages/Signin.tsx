@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router";
 import { useGlobalAuth } from "../context/AuthContext";
-import { ArrowLeftIcon } from "lucide-react";
 
 export default function Signin() {
 	const { signedIn, loading } = useGlobalAuth();
@@ -27,7 +26,7 @@ export default function Signin() {
 	if (signedIn) return null;
 
 	const handleGoogleLogin = () => {
-		window.open("http://localhost:7000/api/auth/google", "_self");
+		window.open("https://getyourapi.onrender.com/api/auth/google", "_self");
 	};
 
 	return (

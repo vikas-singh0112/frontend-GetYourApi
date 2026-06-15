@@ -1,12 +1,12 @@
 import { Link, useLocation } from "react-router";
-import { DoorOpen, LogOut, Menu, Terminal, X } from "lucide-react";
+import { LogOut, Menu, Terminal, X } from "lucide-react";
 import { useGlobalAuth } from "../context/AuthContext";
 import { useEffect, useRef, useState } from "react";
 
 function Navbar() {
 	const location = useLocation();
 
-	const { user, signedIn, logout, loading } = useGlobalAuth();
+	const { user, signedIn, logout } = useGlobalAuth();
 
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -47,8 +47,8 @@ function Navbar() {
 
 	return (
 		<>
-			<header className="w-full lg:w-6xl border-b-2 border-green-500/30 bg-black sticky top-0 z-50 ">
-				<div className="px-8 lg:px-0 w-full h-16 flex items-center justify-between  mx-auto ">
+			<header className="w-full lg:w-6xl border-b-2 border-green-500/30  h-16  fixed top-0 z-50 flex justify-center bg-black">
+				<div className="px-8 lg:px-0 w-full  flex items-center justify-between  mx-auto">
 					<div className="flex w-auto items-center space-x-2 font-bold text-2xl tracking-tight">
 						<Terminal className="text-green-500 h-7 w-7" />
 						<span className="text-white">
@@ -86,6 +86,7 @@ function Navbar() {
 									<img
 										src={userAvatar}
 										alt="user image"
+										referrerPolicy="no-referrer"
 										className="w-8 h-8 rounded-full   ring-green-500 antialiased hover:ring-2"
 									/>
 									{isOpen && (
@@ -162,6 +163,7 @@ function Navbar() {
 										<img
 											src={userAvatar}
 											alt="user image"
+											referrerPolicy="no-referrer"
 											className="w-20 h-20 rounded-full   ring-green-500 antialiased hover:ring-2 mb-4"
 										/>
 
