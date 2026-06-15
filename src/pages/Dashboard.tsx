@@ -1,14 +1,21 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useEffect } from "react-router";
 import { useGlobalAuth } from "../context/AuthContext";
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 
 export default function Dashboard() {
 	const navigate = useNavigate();
-	const { user, signedIn, loading } = useGlobalAuth();
+	const { user, signedIn, loading, refreshAuth } = useGlobalAuth();
 	const [secret, setSecret] = useState<string>("");
 	const [copied, setCopied] = useState(false);
 	const [coolDown, setCoolDown] = useState(false);
+
+	// Refresh auth when dashboard loads to detect OAuth redirect
+	useEffect(() => {
+		if (!signedIn && !loading) {
+			refreshAuth();
+		}
+	}, []);
 
 	if (loading) {
 		return (
@@ -28,7 +35,9 @@ export default function Dashboard() {
 		setCoolDown(true);
 
 		try {
-			const response = await fetch("http://localhost:7000/api/auth/secret", {
+			const backendUrl =
+				import.meta.env.VITE_BACKEND_URL || "https://getyourapi.onrender.com";
+			const response = await fetch(`${backendUrl}/api/auth/secret`, {
 				credentials: "include",
 			});
 
