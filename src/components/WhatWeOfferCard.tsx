@@ -1,10 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router";
 
 type WhatWeOfferCardProps = {
 	title: string;
 	imgSrc: string;
+	btnName: string;
 };
-function WhatWeOfferCard({ title, imgSrc }: WhatWeOfferCardProps) {
+function WhatWeOfferCard({ title, imgSrc, btnName }: WhatWeOfferCardProps) {
 	return (
 		<div
 			className={
@@ -22,12 +24,15 @@ function WhatWeOfferCard({ title, imgSrc }: WhatWeOfferCardProps) {
 				<p className={"mt-4"}>{title}</p>
 			</div>
 			<div className={"flex justify-between mt-4 gap-4"}>
-				<button className={"w-full bg-green-500 py-1 px-3 rounded-sm"}>
-					<span className="flex items-center justify-center">
-						Docs
+				<Link
+					to={`/${btnName}`}
+					className="w-full bg-green-500 py-1 px-3 rounded-sm cursor-pointer"
+				>
+					<span className="flex items-center justify-center capitalize">
+						{btnName}
 						<ArrowUpRight size={12} />
 					</span>
-				</button>
+				</Link>
 			</div>
 		</div>
 	);

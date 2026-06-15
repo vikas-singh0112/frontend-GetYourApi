@@ -16,20 +16,24 @@ export default function WhatWeOfferSection() {
 				{/* Changed gap and grid-style feel */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 					<WhatWeOfferCard
-						title="Free public APIs: users, posts, comments."
+						title="Free public APIs: users, products, todos."
 						imgSrc="/api.jpg"
+						btnName="api"
 					/>
 					<WhatWeOfferCard
 						title="Authenticated users can perform CRUD operations."
 						imgSrc="/authenticate.jpg"
+						btnName="docs"
 					/>
 					<WhatWeOfferCard
-						title="Persistence: data stays for 24 hours."
+						title="Persistence data stays for 24 hours."
 						imgSrc="/24hours.jpg"
+						btnName="docs"
 					/>
 					<WhatWeOfferCard
-						title="Upgrade for higher limits & data retention."
-						imgSrc="upgrade.jpg"
+						title="Pagination support is available by default."
+						imgSrc="/upgrade.jpg"
+						btnName="docs"
 					/>
 				</div>
 			</div>
