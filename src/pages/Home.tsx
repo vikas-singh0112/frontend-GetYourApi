@@ -1,5 +1,4 @@
 import Footer from "../components/Footer";
-import AboutUsSection from "../components/homePageSections/AboutUsSection";
 import ApiShowcaseSection from "../components/homePageSections/ApiShowcaseSection";
 import HeroSection from "../components/homePageSections/HeroSection";
 import ProblemAndVisionSection from "../components/homePageSections/ProblemAndVisionSection";

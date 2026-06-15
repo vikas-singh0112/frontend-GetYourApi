@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { LogOut, Menu, Terminal, X } from "lucide-react";
+import { LogOut, Menu, Terminal} from "lucide-react";
 import { useGlobalAuth } from "../context/AuthContext";
 import { useEffect, useRef, useState } from "react";
 
