@@ -1,6 +1,6 @@
-import { useNavigate, useEffect } from "react-router";
+import { useNavigate } from "react-router";
 import { useGlobalAuth } from "../context/AuthContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Check, Copy } from "lucide-react";
 
 export default function Dashboard() {
