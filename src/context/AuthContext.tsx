@@ -54,11 +54,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 			import.meta.env.VITE_BACKEND_URL || "https://getyourapi.onrender.com";
 		fetch(`${backendUrl}/api/auth/logout`, {
 			credentials: "include",
-		}).then(() => {
-			setUser(null);
-			setSignedIn(false);
-			window.location.href = "/";
-		});
+		})
+			.then(() => {
+				setUser(null);
+				setSignedIn(false);
+				window.location.href = "/";
+			})
+			.catch((error) => {
+				console.error("Logout error:", error);
+				
+				setUser(null);
+				setSignedIn(false);
+				window.location.href = "/";
+			});
 	};
 
 	return (
