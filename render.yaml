@@ -1,0 +1,5 @@
+routes:
+  - path: /*
+    methods: [GET]
+    status: 200
+    file: /index.html
