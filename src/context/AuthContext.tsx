@@ -24,7 +24,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
 	const refreshAuth = async () => {
 		try {
-			const res = await fetch("https://getyourapi.onrender.com/api/auth/user", {
+			const backendUrl =
+				import.meta.env.VITE_BACKEND_URL || "https://getyourapi.onrender.com";
+			const res = await fetch(`${backendUrl}/api/auth/user`, {
 				credentials: "include",
 			});
 			const data = await res.json();
@@ -48,7 +50,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 	}, []);
 
 	const logout = () => {
-		fetch("https://getyourapi.onrender.com/api/auth/logout", {
+		const backendUrl =
+			import.meta.env.VITE_BACKEND_URL || "https://getyourapi.onrender.com";
+		fetch(`${backendUrl}/api/auth/logout`, {
 			credentials: "include",
 		}).then(() => {
 			setUser(null);

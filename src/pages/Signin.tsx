@@ -26,7 +26,9 @@ export default function Signin() {
 	if (signedIn) return null;
 
 	const handleGoogleLogin = () => {
-		window.open("https://getyourapi.onrender.com/api/auth/google", "_self");
+		const backendUrl =
+			import.meta.env.VITE_BACKEND_URL || "https://getyourapi.onrender.com";
+		window.open(`${backendUrl}/api/auth/google`, "_self");
 	};
 
 	return (
@@ -66,7 +68,9 @@ export default function Signin() {
 				</p>
 
 				<Link to={"/"} className="mt-6 flex justify-center text-xs">
-					<span className="bg-green-500/30 py-3 px-4 rounded-xl">Go to Home</span>
+					<span className="bg-green-500/30 py-3 px-4 rounded-xl">
+						Go to Home
+					</span>
 				</Link>
 			</div>
 		</div>
