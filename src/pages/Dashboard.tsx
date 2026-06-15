@@ -1,21 +1,28 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import { useGlobalAuth } from "../context/AuthContext";
 import { useEffect, useState } from "react";
 import { Check, Copy } from "lucide-react";
 
 export default function Dashboard() {
 	const navigate = useNavigate();
+	const [searchParams] = useSearchParams();
 	const { user, signedIn, loading, refreshAuth } = useGlobalAuth();
 	const [secret, setSecret] = useState<string>("");
 	const [copied, setCopied] = useState(false);
 	const [coolDown, setCoolDown] = useState(false);
 
-	// Refresh auth when dashboard loads to detect OAuth redirect
+	// Handle redirect from OAuth and refresh auth
 	useEffect(() => {
+		const token = searchParams.get("token");
+		if (token) {
+			// Remove token from URL
+			window.history.replaceState({}, document.title, window.location.pathname);
+		}
+		// Always refresh auth when dashboard loads
 		if (!signedIn && !loading) {
 			refreshAuth();
 		}
-	}, []);
+	}, [searchParams, signedIn, loading, refreshAuth]);
 
 	if (loading) {
 		return (
