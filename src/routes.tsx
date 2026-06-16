@@ -7,7 +7,6 @@ import Api from "./pages/Api";
 import AuthLayout from "./layouts/AuthLayout";
 import Signin from "./pages/Signin";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import Docs from "./pages/Docs";
 
@@ -21,7 +20,6 @@ export const router = createBrowserRouter([
 			{ path: "api", element: <Api /> },
 			{ path: "docs", element: <Docs /> },
 			{ path: "about", element: <About /> },
-			{ path: "contact", element: <Contact /> },
 			{ path: "dashboard", element: <Dashboard /> },
 		],
 	},

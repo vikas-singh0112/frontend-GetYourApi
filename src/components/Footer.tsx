@@ -19,12 +19,7 @@ export default function Footer() {
 					>
 						Explore the Endpoints
 					</Link>
-					<Link
-						to={"/contact"}
-						className="w-full sm:w-auto border border-zinc-800 hover:border-zinc-700 bg-zinc-900/30 text-zinc-300 font-semibold px-6 py-3 rounded transition text-center"
-					>
-						Request a Custom Dataset
-					</Link>
+					
 				</div>
 			</div>
 			<p className="text-sm text-zinc-400 lg:text-xs lg:text-zinc-600 mt-16 font-mono">

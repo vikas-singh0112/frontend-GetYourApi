@@ -46,7 +46,7 @@ export default function HeroSection() {
 						</div>
 						<button
 							onClick={handleCopy}
-							className="text-zinc-400 hover:text-white transition p-1.5 rounded hover:bg-zinc-800 flex items-center gap-1.5 text-xs font-mono"
+							className="text-zinc-400 hover:text-white transition p-1.5 rounded hover:bg-zinc-800 flex items-center gap-1.5 text-xs font-mono cursor-pointer"
 						>
 							{copied ? (
 								<Check className="h-3.5 w-3.5 text-green-400" />

@@ -1,4 +1,4 @@
-"use client";
+
 import { useState } from "react";
 import type { Route } from "../pages/Api";
 import CodeBox from "./CodeBox";
