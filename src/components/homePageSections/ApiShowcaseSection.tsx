@@ -1,24 +1,26 @@
+import { Link } from "react-router";
+
 export default function ApiShowcaseSection() {
 	const categories = [
 		{
 			title: "E-Commerce",
 			count: "8 Endpoints",
-			desc: "Products, cart, orders, reviews, and categories.",
+			desc: "Products, categories, price.",
 		},
 		{
 			title: "User Management",
-			count: "5 Endpoints",
-			desc: "Profiles, auth states, avatars, and permissions.",
+			count: "7 Endpoints",
+			desc: "Profiles, avatars, and roles.",
 		},
 		{
-			title: "Content & Blogs",
-			count: "6 Endpoints",
-			desc: "Posts, comments, tags, authors, and media.",
+			title: "Fun & Jokes",
+			count: "8 Endpoints",
+			desc: "Setup, punchline.",
 		},
 		{
-			title: "Utilities",
-			count: "12 Endpoints",
-			desc: "Weather, currency, geo-data, and todo lists.",
+			title: "Todos",
+			count: "7 Endpoints",
+			desc: "Title, content.",
 		},
 	];
 	return (
@@ -28,7 +30,7 @@ export default function ApiShowcaseSection() {
 		>
 			<div className="text-center mb-12">
 				<h2 className="text-3xl font-bold tracking-tight text-white mb-3 wrap-break-word">
-					30+ Rich Datasets Ready to{" "}
+					Rich Datasets Ready to{" "}
 					<span className="text-green-500">Plug</span>
 				</h2>
 				<p className="text-zinc-400 wrap-break-word text-xl sm:text-md">
@@ -38,7 +40,7 @@ export default function ApiShowcaseSection() {
 
 			<div className="grid md:grid-cols-2 gap-6">
 				{categories.map((cat, idx) => (
-					<div
+					<Link to={"/api"}
 						key={idx}
 						className="bg-zinc-900/10 border border-zinc-800/80 p-6 rounded-xl hover:border-green-500/40 transition-all duration-300 group"
 					>
@@ -51,7 +53,7 @@ export default function ApiShowcaseSection() {
 							</span>
 						</div>
 						<p className="text-sm text-zinc-400 leading-relaxed">{cat.desc}</p>
-					</div>
+					</Link>
 				))}
 			</div>
 		</section>
