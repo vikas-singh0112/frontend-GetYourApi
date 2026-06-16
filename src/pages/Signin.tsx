@@ -68,7 +68,7 @@ export default function Signin() {
 				</p>
 
 				<Link to={"/"} className="mt-6 flex justify-center text-xs">
-					<span className="bg-green-500/30 py-3 px-4 rounded-xl">
+					<span className="bg-green-500/30 py-3 px-4 rounded-lg hover:bg-green-500">
 						Go to Home
 					</span>
 				</Link>

@@ -50,11 +50,14 @@ export default function Limit({ backendUrl }: { backendUrl: string }) {
 					<p className="text-green-500 font-bold px-4">Usage:</p>
 					<button
 						onClick={handleCopy}
-						className={`flex mr-4 items-center gap-2 justify-center h-fit w-fit px-3 py-1 rounded text-white cursor-pointer ${copied ? "bg-green-700 disabled:cursor-not-allowed" : "bg-green-500"}`}
+						className={`flex mr-4 items-center gap-2 justify-center h-fit w-fit px-3 py-1 rounded text-white cursor-pointer ${
+							copied
+								? "bg-emerald-700 shadow-emerald-950/20"
+								: "bg-green-600 hover:bg-green-500 shadow-green-900/20"
+						}`}
 						disabled={copied}
 					>
-						Copy
-						<span>{copied ? <Check size={14} /> : <Copy size={14} />}</span>
+						{copied ? "copied!" : "copy"}
 					</button>
 				</div>
 				<pre className="text-sm">{limitCode}</pre>

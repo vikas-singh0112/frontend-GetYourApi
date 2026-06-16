@@ -3,6 +3,7 @@ import { useState } from "react";
 import type { Route } from "../pages/Api";
 import CodeBox from "./CodeBox";
 import { LineDotRightHorizontal } from "lucide-react";
+
 interface ApiCardsProps {
 	index: number;
 	data: Route;
@@ -10,6 +11,8 @@ interface ApiCardsProps {
 	isCodeOpen: boolean;
 	setActiveCodeIndex: (index: number | null) => void;
 }
+
+
 
 const ApiCards = ({
 	index,
@@ -23,7 +26,7 @@ const ApiCards = ({
 	const openCodeBtn = (
 		e: React.MouseEvent<HTMLButtonElement>,
 		route: string,
-	) => {
+	 ) => {
 		e.preventDefault();
 		if (isCodeOpen && selectedRoute === route) {
 			setActiveCodeIndex(null);
@@ -32,6 +35,42 @@ const ApiCards = ({
 			setActiveCodeIndex(index);
 		}
 	};
+
+	function HideOpenButton({ route }: { route: string }) {
+		return (
+			<button
+				onClick={(e) => openCodeBtn(e, route!)}
+				className={`w-full  py-1.5 text-xs font-medium transition-all duration-200 rounded-md border cursor-pointer ${
+					isCodeOpen && selectedRoute === route
+						? "bg-green-500/10 border-green-500/50 text-green-400"
+						: "bg-zinc-800/50 border-zinc-700 text-zinc-400 hover:text-zinc-200"
+				}`}
+			>
+				{isCodeOpen && selectedRoute === route ? "Hide" : "See"}
+			</button>
+		);
+	}
+
+	function CopyButton({ url }: { url: string }) {
+		const [copied, setCopied] = useState(false);
+
+		return (
+			<button
+				onClick={() => {
+					navigator.clipboard.writeText(url);
+					setCopied(true);
+					setTimeout(() => setCopied(false), 1000);
+				}}
+				className={`w-full py-1.5 text-xs font-medium text-white transition-all rounded-md shadow-lg cursor-pointer ${
+					copied
+						? "bg-emerald-700 shadow-emerald-950/20"
+						: "bg-green-600 hover:bg-green-500 shadow-green-900/20"
+				}`}
+			>
+				{copied ? "Copied!" : "Copy"}
+			</button>
+		);
+	}
 
 	return (
 		<div
@@ -67,34 +106,16 @@ const ApiCards = ({
 										Endpoint:
 									</span>
 									<code className="text-green-400 font-mono text-xs break-all">
-										{import.meta.env.VITE_BACKEND_URL}
+										{import.meta.env.VITE_BACKEND_URL}/api
 										{data.globalRoute}
 									</code>
 								</div>
 							</div>
 							<div className="flex items-center sm:w-1/4 gap-2">
-								<button
-									onClick={(e) => openCodeBtn(e, data.globalRoute)}
-									className={`w-full  py-1.5 text-xs font-medium transition-all duration-200 rounded-md border cursor-pointer ${
-										isCodeOpen && selectedRoute === data.globalRoute
-											? "bg-green-500/10 border-green-500/50 text-green-400"
-											: "bg-zinc-800/50 border-zinc-700 text-zinc-400 hover:text-zinc-200"
-									}`}
-								>
-									{isCodeOpen && selectedRoute === data.globalRoute
-										? "Hide"
-										: "See"}
-								</button>
-								<button
-									onClick={() =>
-										navigator.clipboard.writeText(
-											`${import.meta.env.VITE_BACKEND_URL}${data.globalRoute}`,
-										)
-									}
-									className="w-full  py-1.5 text-xs font-medium bg-green-600 hover:bg-green-500 text-white transition-all rounded-md shadow-lg shadow-green-900/20 cursor-pointer"
-								>
-									Copy
-								</button>
+								<HideOpenButton route={data.globalRoute} />
+								<CopyButton
+									url={`${import.meta.env.VITE_BACKEND_URL}/api${data.globalRoute}`}
+								/>
 							</div>
 						</div>
 
@@ -112,34 +133,16 @@ const ApiCards = ({
 												Endpoint:
 											</span>
 											<code className="text-green-400 font-mono text-xs break-all">
-												{import.meta.env.VITE_BACKEND_URL}
+												{import.meta.env.VITE_BACKEND_URL}/api
 												{data.privateRoute}
 											</code>
 										</div>
 									</div>
 									<div className="flex items-center sm:w-1/4 gap-2">
-										<button
-											onClick={(e) => openCodeBtn(e, data.privateRoute!)}
-											className={`w-full  py-1.5 text-xs font-medium transition-all duration-200 rounded-md border cursor-pointer ${
-												isCodeOpen && selectedRoute === data.privateRoute
-													? "bg-green-500/10 border-green-500/50 text-green-400"
-													: "bg-zinc-800/50 border-zinc-700 text-zinc-400 hover:text-zinc-200"
-											}`}
-										>
-											{isCodeOpen && selectedRoute === data.privateRoute
-												? "Hide"
-												: "See"}
-										</button>
-										<button
-											onClick={() =>
-												navigator.clipboard.writeText(
-													`${import.meta.env.VITE_BACKEND_URL}${data.privateRoute}`,
-												)
-											}
-											className="w-full py-1.5 text-xs font-medium bg-green-600 hover:bg-green-500 text-white transition-all rounded-md shadow-lg shadow-green-900/20 cursor-pointer"
-										>
-											Copy
-										</button>
+										<HideOpenButton route={data.privateRoute} />
+										<CopyButton
+											url={`${import.meta.env.VITE_BACKEND_URL}/api${data.privateRoute}`}
+										/>
 									</div>
 								</div>
 							</>

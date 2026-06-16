@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function HeroSection() {
 	const [copied, setCopied] = useState(false);
-	const sampleCode = `fetch('https://api.getyourapi.com/v1/products')
+	const sampleCode = `fetch("${import.meta.env.VITE_BACKEND_URL}/api/jokes?limit=1")
   .then(res => res.json())
   .then(data => console.log(data));`;
 
