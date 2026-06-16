@@ -76,7 +76,7 @@ export default function Docs() {
 			? "bg-green-500/10 text-green-400 font-medium"
 			: "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200";
 
-	const backendUrl = import.meta.env.VITE_BACKEND_URL;
+	const backendUrl = `${import.meta.env.VITE_BACKEND_URL}/api`;
 
 	return (
 		<div className="w-full  flex flex-col lg:flex-row mx-auto lg:w-6xl px-4 lg:px-0">

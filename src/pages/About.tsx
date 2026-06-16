@@ -153,12 +153,7 @@ export default function About() {
 							Explore APIs
 						</Link>
 
-						<Link
-							to={"/contact"}
-							className="w-full sm:w-auto border border-zinc-800 hover:border-zinc-700 bg-zinc-900/30 text-zinc-300 font-semibold px-6 py-3 rounded transition text-center"
-						>
-							Contact Us
-						</Link>
+						
 					</div>
 				</div>
 			</div>

@@ -32,7 +32,7 @@ const CodeBox = ({ data, apiData, route, method }: CodeBoxProps) => {
   async function ${data.name.replace(/\s+|_/g, "")}() {
     try {
       const response = await fetch(
-	     "${import.meta.env.VITE_BACKEND_URL}${route}"${
+	     "${import.meta.env.VITE_BACKEND_URL}/api${route}"${
 				(route === data.globalRoute && data.name.split(" ")[0] === "create") ||
 				route === data.privateRoute
 					? `, {
